@@ -152,7 +152,7 @@ export default function Showcase({ ready }) {
     <section
       id="top"
       ref={root}
-      className="relative h-screen w-full overflow-hidden bg-ink"
+      className="relative flex h-screen w-full flex-col overflow-hidden bg-ink"
       style={{ height: '100svh', perspective: 1200 }}
       aria-label="Signature dishes"
     >
@@ -160,7 +160,7 @@ export default function Showcase({ ready }) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_55%,rgba(255,87,34,.18),transparent_70%)]" />
 
       {/* top meta */}
-      <div className="absolute inset-x-0 top-20 z-20 flex flex-col items-center gap-3 px-5 text-center sm:top-24">
+      <div className="relative z-20 flex shrink-0 flex-col items-center gap-2 px-5 pt-20 text-center sm:gap-3 sm:pt-24">
         <p className="eyebrow">Charcoal · Tandoor · Pure Veg</p>
         <p className="font-serif text-sm italic text-muted sm:text-base">{brand.tagline}</p>
         <DeliveryButtons compact className="justify-center" />
@@ -172,6 +172,8 @@ export default function Showcase({ ready }) {
         </div>
       </div>
 
+      {/* dish stage: fills the space below the meta block so dishes never sit under it */}
+      <div className="relative mb-16 min-h-0 flex-1 sm:mb-28">
       {signatures.map((d, i) => (
         <article
           key={d.id}
@@ -188,15 +190,15 @@ export default function Showcase({ ready }) {
           <div className="parallax-wrap relative z-10 flex w-full max-w-7xl flex-col items-center gap-6 px-5 md:flex-row md:justify-between md:px-12" style={{ transformStyle: 'preserve-3d' }}>
             {/* text block */}
             <div className="dish-text order-2 text-center md:order-1 md:w-1/3 md:text-left">
-              <div className="font-mono text-6xl font-light text-ember sm:text-8xl">{d.id}</div>
+              <div className="font-mono text-5xl font-light text-ember sm:text-8xl">{d.id}</div>
               <div className="eyebrow mt-2">{d.category}</div>
-              <h2 className="mt-2 font-serif text-3xl font-bold leading-tight sm:text-5xl">{d.title}</h2>
-              <div className="mt-3 font-mono text-2xl text-gold sm:text-3xl">₹{d.price}</div>
+              <h2 className="mt-1 font-serif text-2xl font-bold leading-tight sm:mt-2 sm:text-5xl">{d.title}</h2>
+              <div className="mt-2 font-mono text-xl text-gold sm:mt-3 sm:text-3xl">₹{d.price}</div>
             </div>
 
             {/* centerpiece */}
             <div className="order-1 relative md:order-2 md:w-1/2">
-              <div className="relative mx-auto aspect-square w-[min(62vw,44vh,460px)] md:w-[min(46vw,60vh,520px)]">
+              <div className="relative mx-auto aspect-square w-[min(62vw,34vh,460px)] md:w-[min(46vw,46vh,520px)]">
                 {garnish.map((g, k) => (
                   <div
                     key={k}
@@ -229,6 +231,7 @@ export default function Showcase({ ready }) {
           </div>
         </article>
       ))}
+      </div>
 
       {/* badges */}
       <div className="absolute bottom-20 left-0 right-0 z-20 hidden flex-wrap justify-center gap-2 px-5 sm:flex">
