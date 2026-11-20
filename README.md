@@ -22,6 +22,10 @@ npm run preview   # serve the production build
 
 Vercel detects Vite automatically. `vercel.json` adds caching and security headers. Set the project's Node.js version to 22.x.
 
+## Google Search
+
+The site includes a canonical URL, search/social metadata, restaurant structured data, `robots.txt`, and an XML sitemap for `https://the-angaar.vercel.app/`. After deploying, add the site in [Google Search Console](https://search.google.com/search-console/) and submit `https://the-angaar.vercel.app/sitemap.xml`. Google may take days or weeks to crawl and index a new site; submission does not guarantee inclusion or ranking.
+
 ## Where to edit things
 
 Almost all content lives in **`src/data/restaurant.js`**:

@@ -46,7 +46,7 @@ export const delivery = [
   {
     key: 'zomato',
     label: 'Order on Zomato',
-    href: 'https://www.zomato.com/search?q=The%20Angaar',
+    href: 'http://zoma.to/r/22923885',
     color: '#E23744',
   },
 ]
